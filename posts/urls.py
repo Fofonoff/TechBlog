@@ -3,7 +3,9 @@ from django.urls import path
 
 from . import views
 
+# App urls
 urlpatterns = [
-    path(r'^$', views.index, name='index'),
-    path(r'^details/(?P<id>\d+)/$', views.details, name='details')
+    path('', views.index, name='blog-index'),
+    path('about/', views.about, name='blog-about'),
+    path('details/(?P<id>\d+)/$', views.details, name='details')
 ]

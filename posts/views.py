@@ -19,6 +19,13 @@ def index(request):
     return render(request, 'posts/index.html', context)
 
 
+def about(request):
+    context = {
+        'title': 'About',
+    }
+    return render(request, 'posts/about.html', context)
+
+
 def details(request, id):
     post = Posts.objects.get(id=id)
 
