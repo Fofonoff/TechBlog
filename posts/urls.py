@@ -7,5 +7,5 @@ from . import views
 urlpatterns = [
     path('', views.index, name='blog-index'),
     path('about/', views.about, name='blog-about'),
-    path('details/(?P<id>\d+)/$', views.details, name='details')
+    path('details/', views.details, name='details')
 ]

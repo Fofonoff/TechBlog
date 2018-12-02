@@ -1,4 +1,5 @@
 {% load static %}
+<!-- This is the main html file, which is extended by other html files in the block content -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'posts/main.css %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'posts/main.css' %}">
     {%  if title  %}
         <title>TechBlog - {{  title  }}</title>
     {%  else  %}
@@ -41,6 +42,7 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-8">
+                <!-- This is where the content of other html pages will show -->
                 {% block content %}{% endblock %}
             </div>
             <div class="col-md-4">
