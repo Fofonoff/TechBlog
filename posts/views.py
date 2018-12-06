@@ -30,6 +30,7 @@ class PostListView(ListView):
     template_name = 'posts/index.html'
     context_object_name = 'posts'
     ordering = ['-created_at']
+    paginate_by = 5
 
 
 # Class-based view for post details
