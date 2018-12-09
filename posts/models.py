@@ -12,8 +12,7 @@ class Post(models.Model):
     body = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    # last modified:
-    # created_at = models.DateTimeField(auto_now=True)
+    # last_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title

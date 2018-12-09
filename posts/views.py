@@ -32,6 +32,7 @@ class PostListView(ListView):
     paginate_by = 5
 
 
+# Class-based view to show a particular user's posts
 class UserPostListView(ListView):
     model = Post
     template_name = 'posts/user_posts.html'
@@ -75,6 +76,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return False
 
 
+# Class-based view to confirm a post delete
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     success_url = '/'
