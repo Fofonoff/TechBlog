@@ -1,6 +1,7 @@
 {% extends 'posts/layout.html' %}
-<!-- html for showing the blog posts in the home page -->
+<!-- html for showing a particular user's posts -->
 {%  block content %}
+<h1 class="mb-3">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
 <h3 class="center-align red lighten-3">{{ title }}</h3>
 <ul class="collection">
     {%  for post in posts %}
