@@ -11,9 +11,19 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import netifaces
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+def ip_addresses():
+    ip_list = []
+    for interface in netifaces.interfaces():
+        addrs = netifaces.ifaddresses(interface)
+        for x in (netifaces.AF_INET, netifaces.AF_INET6):
+            if x in addrs:
+                ip_list.append(addrs[x][0]['addr'])
+    return ip_list
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +35,7 @@ SECRET_KEY = '3y($380j6#*kh=9(amlz!10__#!sfl8=8l3l-96^a3kg0*^7z6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['68.183.218.24']
+ALLOWED_HOSTS = ip_addresses()
 
 
 # Application definition
@@ -85,14 +95,15 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Blog',
-        'USER': 'root',
-        # 'PASSWORD': '123456',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': 'ec794fba62d874bcf3f22ee1c34ce4b8',
         'HOST': 'localhost',
-        'PORT': ''
+        'PORT': '',
     }
 }
+
 
 
 # Password validation
